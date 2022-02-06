@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinhyupa <jinhyupa@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/02 21:23:55 by jinhyupa          #+#    #+#             */
-/*   Updated: 2022/02/06 13:06:56 by jinhyupa         ###   ########.fr       */
+/*   Created: 2022/02/06 13:07:36 by jinhyupa          #+#    #+#             */
+/*   Updated: 2022/02/06 13:07:38 by jinhyupa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	i;
+	unsigned char		*dst_tmp;
+	const unsigned char	*src_tmp;
+	size_t				i;
 
-	i = 0;
-	while (i < len)
+	if (!dst && !src)
+		return (dst);
+	dst_tmp = (unsigned char *)dst;
+	src_tmp = (const unsigned char *)src;
+	if (dst_tmp > src_tmp)
 	{
-		*(unsigned char *)(b + i) = (unsigned char)c;
-		i++;
+		i = len;
+		while (i > 0)
+		{
+			dst_tmp[i - 1] = src_tmp[i - 1];
+			i--;
+		}
+		return (dst);
 	}
-	return (b);
+	return (ft_memcpy(dst, src, len));
 }
