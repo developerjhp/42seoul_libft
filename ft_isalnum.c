@@ -6,13 +6,13 @@
 /*   By: jinhyupa <jinhyupa@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 13:41:29 by jinhyupa          #+#    #+#             */
-/*   Updated: 2022/01/31 13:50:12 by jinhyupa         ###   ########.fr       */
+/*   Updated: 2022/02/07 21:59:59 by jinhyupa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include  "libft.h"
+#include "libft.h"
 
 int	ft_isalnum(int c)
 {
-	return (ft_isaplha(c) || ft_isdigit(c));
+	return (ft_isalpha(c) || ft_isdigit(c));
 }

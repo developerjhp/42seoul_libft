@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jinhyupa <jinhyupa@student.42.kr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/02/07 18:45:46 by jinhyupa          #+#    #+#              #
-#    Updated: 2022/02/07 18:46:03 by jinhyupa         ###   ########.fr        #
+#    Created: 2022/02/07 22:00:07 by jinhyupa          #+#    #+#              #
+#    Updated: 2022/02/07 22:00:12 by jinhyupa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,15 +59,15 @@ SRCS		=	ft_memset.c		\
 			ft_putnbr_fd.c
 
 
-# SRCS_BN		=	ft_lstnew.c		\
-# 			ft_lstadd_front.c	\
-# 			ft_lstsize.c		\
-# 			ft_lstlast.c		\
-# 			ft_lstadd_back.c	\
-# 			ft_lstdelone.c		\
-# 			ft_lstclear.c		\
-# 			ft_lstiter.c		\
-# 			ft_lstmap.c
+SRCS_BN		=	ft_lstnew.c		\
+			ft_lstadd_front.c	\
+			ft_lstsize.c		\
+			ft_lstlast.c		\
+			ft_lstadd_back.c	\
+			ft_lstdelone.c		\
+			ft_lstclear.c		\
+			ft_lstiter.c		\
+			ft_lstmap.c
 
 OBJS		= $(SRCS:.c=.o)
 

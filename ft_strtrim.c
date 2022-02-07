@@ -6,7 +6,7 @@
 /*   By: jinhyupa <jinhyupa@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 18:42:01 by jinhyupa          #+#    #+#             */
-/*   Updated: 2022/02/07 18:42:11 by jinhyupa         ###   ########.fr       */
+/*   Updated: 2022/02/07 23:07:33 by jinhyupa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
 	size_t	end;
-	size_t	i;
 
 	if (!s1 && !set)
 		return (NULL);
@@ -24,14 +23,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (ft_strdup(""));
 	if (!set)
 		return (ft_strdup(s1));
-	i = 0;
-	start = i;
-	while (s1[i] && ft_strchr(set, s1[i]))
-		start = (i++) + 1;
-	i = ft_strlen(s1) - 1;
-	end = i;
-	while (s1[i] && ft_strchr(set, s1[i]) && i)
-		end = (i--) - 1;
+	start = 0;
+	while (s1[start] && ft_strchr(set, s1[start]))
+		start++;
+  end = ft_strlen(s1) - 1;
+	while (s1[end] && ft_strchr(set, s1[end]))
+		end--;
 	if (start > end)
 		return (ft_strdup(""));
 	else
