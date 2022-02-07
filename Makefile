@@ -6,7 +6,7 @@
 #    By: jinhyupa <jinhyupa@student.42.kr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 22:00:07 by jinhyupa          #+#    #+#              #
-#    Updated: 2022/02/07 22:00:12 by jinhyupa         ###   ########.fr        #
+#    Updated: 2022/02/08 00:11:03 by jinhyupa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,26 +58,7 @@ SRCS		=	ft_memset.c		\
 			ft_putendl_fd.c		\
 			ft_putnbr_fd.c
 
-
-SRCS_BN		=	ft_lstnew.c		\
-			ft_lstadd_front.c	\
-			ft_lstsize.c		\
-			ft_lstlast.c		\
-			ft_lstadd_back.c	\
-			ft_lstdelone.c		\
-			ft_lstclear.c		\
-			ft_lstiter.c		\
-			ft_lstmap.c
-
 OBJS		= $(SRCS:.c=.o)
-
-OBJS_BONUS	= $(SRCS_BN:.c=.o)
-
-ifdef WITH_BONUS
-A_OBJS = $(OBJS) $(OBJS_BONUS)
-else
-A_OBJS = $(OBJS)
-endif
 
 .PHONY : all
 all : $(NAME)
@@ -85,12 +66,12 @@ all : $(NAME)
 %.o : %.c $(INCLUDES)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME) : $(A_OBJS)
+$(NAME) : $(OBJS)
 	$(AR) $(ARFLAGS) $@ $^
 
 .PHONY : clean
 clean :
-	$(RM) $(RMFLAGS) $(OBJS) $(OBJS_BONUS)
+	$(RM) $(RMFLAGS) $(OBJS)
 
 .PHONY : fclean
 fclean : clean
@@ -98,7 +79,3 @@ fclean : clean
 
 .PHONY : re
 re : fclean all
-
-.PHONY : bonus
-bonus :
-	$(MAKE) WITH_BONUS=1 all
